@@ -16,5 +16,6 @@ RUN apt-get -y update && \
     apt-get -y update && \
     apt-get -y install docker-ce=5:18.09.0~3-0~ubuntu-xenial
 
-ENTRYPOINT ["/usr/bin/docker"]
+COPY docker-wrapper.sh /
 
+ENTRYPOINT ["/bin/bash", "/docker-wrapper.sh"]
